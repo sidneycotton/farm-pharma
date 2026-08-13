@@ -15,6 +15,11 @@ botoesNav.forEach(function (botao) {
 // Dados
 let desafios = JSON.parse(localStorage.getItem('farmpharma-desafios')) || [];
 
+// Remove registros de versões antigas que não têm tipoPlanta/estagio
+desafios = desafios.filter(function (d) {
+  return d.tipoPlanta && typeof d.estagio === 'number';
+});
+
 const tiposDePlanta = Object.keys(estagiosPlanta);
 
 const form = document.getElementById('form-desafio');
@@ -83,8 +88,14 @@ function renderizarJardim() {
     planta.className = 'planta';
     planta.innerHTML = svgMarkup + '<span>' + nomesPlanta[desafio.tipoPlanta] + '</span>';
 
-    jardim.appendChild(planta);
-  });
-}
-
 salvarERenderizar();
+
+// Resetar progresso
+document.getElementById('btn-reset').addEventListener('click', function () {
+  if (confirm('Isso vai apagar todos os desafios e o jardim. Tem certeza?')) {
+    localStorage.removeItem('farmpharma-desafios');
+    desafios = [];
+    salvarERenderizar();
+  }
+});
+

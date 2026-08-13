@@ -214,3 +214,20 @@ body {
   color: #4d9c6d;
   font-weight: 700;
 }
+
+.btn-reset {
+  align-self: center;
+  background: #f6b8b8;
+  color: #8a3a3a;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-reset:hover {
+  background: #f2a3a3;
+}
