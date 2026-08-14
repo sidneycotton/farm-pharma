@@ -1,0 +1,151 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(180deg, #cfe8d8 0%, #eef7ee 40%, #f7f3e8 100%);
+  color: #2d3a2d;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+header { text-align: center; margin-bottom: 20px; }
+h1 { margin: 0 0 6px; font-size: 1.7rem; }
+.subtitle { margin: 0; color: #4a5c4a; font-size: 0.92rem; }
+
+.stage-panel {
+  background: #ffffffcc;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  backdrop-filter: blur(4px);
+}
+
+.stage-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a5c4a;
+  padding: 0 4px 8px;
+}
+
+.canvas-wrap {
+  background: linear-gradient(180deg, #eaf6ea 0%, #f5f0e0 100%);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #d8e8d8;
+}
+
+#plantSvg { width: 100%; height: auto; display: block; }
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn.primary { background: #3f7d3f; color: white; }
+.btn.primary:hover:not(:disabled) { background: #356b35; }
+.btn.primary.pulse { animation: pulse 0.3s ease; }
+
+.btn.secondary { background: #ffd23f; color: #4a3826; }
+.btn.secondary:hover:not(:disabled) { background: #f0c020; }
+
+.btn.text { background: transparent; color: #a15c5c; flex: none; padding: 6px 10px; font-size: 0.8rem; }
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+select#typeSelect {
+  flex-basis: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #cfd8cf;
+  background: white;
+  font-size: 0.9rem;
+}
+
+.seed-display {
+  text-align: center;
+  font-size: 0.72rem;
+  color: #8a9a8a;
+  margin-top: 10px;
+  font-family: monospace;
+}
+
+.garden-section { margin-top: 32px; }
+
+.garden-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.garden-header h2 { font-size: 1.1rem; margin: 0; }
+
+.garden-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.garden-card {
+  background: #ffffffcc;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e0ead8;
+}
+
+.garden-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: block;
+  background: linear-gradient(180deg, #eaf6ea 0%, #f5f0e0 100%);
+}
+
+.garden-card-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4a5c4a;
+}
+
+.garden-seed { color: #a3b0a3; font-weight: 400; font-family: monospace; }
+
+.empty-msg {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #8a9a8a;
+  font-size: 0.85rem;
+  padding: 20px;
+}
+
+@media (max-width: 420px) {
+  h1 { font-size: 1.4rem; }
+}
