@@ -28,11 +28,23 @@ h1 { margin: 0 0 6px; font-size: 1.7rem; }
 
 .stage-info {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: baseline;
   font-size: 0.85rem;
   font-weight: 600;
   color: #4a5c4a;
   padding: 0 4px 8px;
+  gap: 4px 10px;
+}
+
+.plant-name {
+  flex-basis: 100%;
+  order: 3;
+  font-size: 0.78rem;
+  font-weight: 500;
+  font-style: italic;
+  color: #6a8a6a;
 }
 
 .canvas-wrap {
@@ -129,11 +141,13 @@ select#typeSelect {
 
 .garden-card-label {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 2px;
   padding: 6px 8px;
   font-size: 0.72rem;
   font-weight: 600;
   color: #4a5c4a;
+  line-height: 1.25;
 }
 
 .garden-seed { color: #a3b0a3; font-weight: 400; font-family: monospace; }

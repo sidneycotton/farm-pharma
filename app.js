@@ -5,6 +5,7 @@ const growBtn = document.getElementById('growBtn');
 const newPlantBtn = document.getElementById('newPlantBtn');
 const typeSelect = document.getElementById('typeSelect');
 const plantTypeLabel = document.getElementById('plantType');
+const plantNameLabel = document.getElementById('plantName');
 const stageLabel = document.getElementById('stageLabel');
 const seedLabel = document.getElementById('seedLabel');
 const gardenGrid = document.getElementById('gardenGrid');
@@ -27,6 +28,7 @@ function startNewPlant() {
 function renderCurrent() {
   svgRoot.innerHTML = renderPlant(current.genome, current.stage);
   plantTypeLabel.textContent = capitalize(current.type);
+  plantNameLabel.textContent = current.genome.displayName;
   stageLabel.textContent = `${STAGE_NAMES[current.stage]} (${current.stage + 1} / ${STAGE_COUNT})`;
   seedLabel.textContent = current.seed;
 }
@@ -98,7 +100,7 @@ function renderGarden() {
     card.innerHTML = `
       <svg viewBox="0 0 400 500" class="garden-thumb">${svgContent}</svg>
       <div class="garden-card-label">
-        <span>${capitalize(entry.type)}</span>
+        <span>${genome.displayName}</span>
         <span class="garden-seed">#${entry.seed}</span>
       </div>
     `;
