@@ -46,14 +46,12 @@ growBtn.addEventListener('click', () => {
     growBtn.classList.add('pulse');
     setTimeout(() => growBtn.classList.remove('pulse'), 300);
   }
-  if (current.stage === lastStage) {
-    growBtn.disabled = true;
-    newPlantBtn.disabled = false;
-    saveToGarden(current);
-    if (current.type === 'tree') {
-      enterPlacementMode(current.genome);
-    }
-  }
+if (current.stage === lastStage) {
+  growBtn.disabled = true;
+  newPlantBtn.disabled = false;
+  saveToGarden(current);
+  enterPlacementMode(current.genome);
+}
 });
 
 newPlantBtn.addEventListener('click', startNewPlant);
