@@ -59,16 +59,24 @@
     <section id="tab-zen" class="tab-view">
       <div id="zenViewport" class="zen-viewport">
         <svg id="zenSky" class="zen-sky" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
-        <div id="zenWorld" class="zen-world">
-          <svg id="zenWorldSvg" class="zen-world-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
-        </div>
 
-        <!-- floating "holding a tree" placement layer -->
+        <!-- floating "holding a tree" placement layer — must stay BEFORE
+             #zenWorld in the DOM. It's pinned to the viewport with the same
+             sticky+negative-margin trick as #zenSky; that trick only stays
+             stuck to the screen edge from scroll position 0 onward if the
+             element's natural (unstuck) flow position is near the start of
+             the flex row. Placing it after the very wide #zenWorld would
+             push its natural position thousands of px to the right, so it
+             would only ever appear once scrolled almost all the way there. -->
         <div id="placementLayer" class="placement-layer">
           <div class="placement-hint">Move it over a free spot, then tap to plant</div>
           <div id="heldPlant" class="held-plant">
             <svg id="heldPlantSvg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"></svg>
           </div>
+        </div>
+
+        <div id="zenWorld" class="zen-world">
+          <svg id="zenWorldSvg" class="zen-world-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
         </div>
 
         <div class="zen-scroll-hint">← scroll →</div>
