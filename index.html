@@ -63,18 +63,15 @@
           <svg id="zenWorldSvg" class="zen-world-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
         </div>
 
-        <div class="zen-scroll-hint">← scroll →</div>
-      </div>
-
-      <!-- floating "holding a tree" placement layer: pinned over the viewport,
-           kept outside the horizontally-scrolling flex row so it doesn't
-           inherit the world's scroll offset -->
-      <div id="placementLayer" class="placement-layer">
-        <div class="placement-hint">Tap anywhere to plant it</div>
-        <div id="heldPlant" class="held-plant">
-          <svg id="heldPlantSvg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"></svg>
+        <!-- floating "holding a tree" placement layer -->
+        <div id="placementLayer" class="placement-layer">
+          <div class="placement-hint">Tap anywhere to plant it</div>
+          <div id="heldPlant" class="held-plant">
+            <svg id="heldPlantSvg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"></svg>
+          </div>
         </div>
-      </div>
+
+        <div class="zen-scroll-hint">← scroll →</div>
       </div>
     </section>
 
